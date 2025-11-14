@@ -1,22 +1,11 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import { Counter } from "./components/Counter";
 import "./App.css";
+import { TodoList } from "./components/TodoList";
 
-function App() {
-    const [count, setCount] = useState(0);
-
+export default function App() {
     return (
         <>
-            <h1>TractorZoom 2025 Project</h1>
-            {/* This click rerenders everything here including <Counter /> */}
-            <button onClick={() => setCount(count + 1)}>[Click Me]</button>
-            <p>{count}</p>
-            {/* This clikc rerenders JUST <Counter /> */}
-            <Counter />
+            <h1>TractorZoom 2025 TODO Project</h1>
+            <TodoList />
         </>
     );
 }
-
-export default App;
