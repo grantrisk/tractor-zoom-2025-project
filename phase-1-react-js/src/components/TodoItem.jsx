@@ -1,6 +1,7 @@
 import { useState } from "react";
-export const TodoItem = ({ task }) => {
-    const [completed, setComplete] = useState(task.isCompleted);
+export const TodoItem = ({ task, onTaskCompleted }) => {
+    const completed = task.isCompleted;
+
     return (
         <li
             key={task.id}
@@ -9,8 +10,8 @@ export const TodoItem = ({ task }) => {
                 color: completed ? "#888" : "#000",
             }}
         >
-            <input type="checkbox" checked={completed} onChange={() => setComplete(!completed)} />
-            {task.text}
+            <input type="checkbox" checked={completed} onChange={() => onTaskCompleted(task.id)} />
+            {task.text} | {task.id} | {String(completed)}
         </li>
     );
 };
