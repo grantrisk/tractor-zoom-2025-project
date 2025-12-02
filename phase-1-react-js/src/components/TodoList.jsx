@@ -27,8 +27,8 @@ export const TodoList = () => {
         });
     }; */
 
-    // The primary reason we pass the function (toggleCompletedTask) down to the TodoItem is to keep the entire list's 
-    // state centralized in the highest common ancestor, which is the TodoList component. This pattern is often 
+    // The primary reason we pass the function (toggleCompletedTask) down to the TodoItem is to keep the entire list's
+    // state centralized in the highest common ancestor, which is the TodoList component. This pattern is often
     // called "lifting state up."
     const toggleCompletedTask = (taskId) => {
         setTasks((prevTasks) =>
@@ -61,7 +61,7 @@ export const TodoList = () => {
             <TodoForm onAddTask={addTaskHandler} />
             <h3>TODO List:</h3>
             {tasks.map((task) => (
-                <TodoItem task={task} onTaskCompleted={toggleCompletedTask} />
+                <TodoItem key={task.id} task={task} onTaskCompleted={toggleCompletedTask} />
             ))}
         </>
     );

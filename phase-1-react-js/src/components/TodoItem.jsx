@@ -11,7 +11,7 @@ export const TodoItem = ({ task, onTaskCompleted }) => {
             }}
         >
             <input type="checkbox" checked={completed} onChange={() => onTaskCompleted(task.id)} />
-            {task.text} | {task.id} | {String(completed)}
+            {task.text}
         </li>
     );
 };
