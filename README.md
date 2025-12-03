@@ -12,11 +12,16 @@ The first step is to build a standard, client-side-rendered TODO app using Creat
 
 Core Concepts to Learn & Document:
 - [x] Components: Functional components, JSX syntax, component composition (e.g., App, TodoList, TodoItem, TodoForm).
-- [ ] State: The useState hook for managing the list of todos and form inputs. Understanding its immutability.
-- [ ] Props: Passing data down the component tree (props drilling).
-- [ ] Event Handling: Managing onSubmit for the form and onClick/onChange for list items (deleting, marking complete).
-- [ ] Conditional Rendering: Showing different UI elements based on state (e.g., a "completed" style).
-- [ ] List & Keys: Rendering lists with the map() method and the importance of the key prop.
+- [x] State: The useState hook for managing the list of todos and form inputs. Understanding its immutability.
+    - Examples can be found within TodoList.jsx. The addTaskHandler function uses the spread syntax (...) to create a new array when adding a task. The toggleCompletedTask function uses both Array.prototype.map() (to create a new array) and the spread syntax (to create a new task object) to ensure a fully immutable update.
+- [x] Props: Passing data down the component tree (props drilling).
+    - We pass the props down from TodoList.jsx to TodoItem.jsx 
+- [x] Event Handling: Managing onSubmit for the form and onClick/onChange for list items (deleting, marking complete).
+    - the TodoForm.jsx handles adding a new task and using the imput element to receive the tasks label.
+- [x] Conditional Rendering: Showing different UI elements based on state (e.g., a "completed" style).
+    - See the TodoItem.jsx file to see the text decoration and color of the task change based on the tasks completed state.
+- [x] List & Keys: Rendering lists with the map() method and the importance of the key prop.
+    - TodoList.jsx uses the map() method to iterate over all tasks and render them as the TodoItem component
 
 ### Phase 2: Introducing TypeScript
 Once the React app works, the next phase is to refactor the entire application to use TypeScript. This will introduce static typing.
