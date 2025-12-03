@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.js'
+import App from './App'
 
 
 // createRoot lets you create a root to display React components inside a browser DOM node.

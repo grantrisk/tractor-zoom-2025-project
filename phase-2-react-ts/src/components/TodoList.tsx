@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { TodoItem } from "./TodoItem";
 import { TodoForm } from "./TodoForm";
+import { Todo } from "../types/Todo";
 
-const initialTasks = [
+const initialTasks: Todo[] = [
     { id: 1, text: "Buy groceries", isCompleted: false },
     { id: 2, text: "Finish React project", isCompleted: false },
     { id: 3, text: "Walk the dog", isCompleted: true },
