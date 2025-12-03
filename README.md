@@ -6,7 +6,7 @@ This repostiory is strictly for learning all the intricacies of React and Next.j
 
 I am going to start out with a rudimentary TODO application. I want to add comments/documentation everywhere to explain all concepts and decisions. I am going to break this down in phases:
 
-(AI generated below... probably will diverge on my own path but I do like the idea of starting with a basic project and then converting it across the phases to know what each thing brings to the table.)
+(AI generated below... probably will diverge on my own path but I do like the idea of starting with a basic project and then converting it across the phases to know what each thing brings to the table. I also added my own explanations next to each line item explaining where the item was implemented)
 ### Phase 1: The React Foundation (Client-Side)
 The first step is to build a standard, client-side-rendered TODO app using Create React App (or Vite) and plain JavaScript. This establishes a baseline and focuses purely on React fundamentals.
 
