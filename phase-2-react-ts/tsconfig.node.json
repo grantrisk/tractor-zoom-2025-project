@@ -1,26 +1,52 @@
 {
-  "compilerOptions": {
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
-    "target": "ES2023",
-    "lib": ["ES2023"],
-    "module": "ESNext",
-    "types": ["node"],
-    "skipLibCheck": true,
+    "compilerOptions": {
+        /* * "tsBuildInfoFile"
+         * Saves a cache file so TypeScript doesn't have to re-check everything
+         * from scratch every time you save. Speeds up the IDE.
+         */
+        "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
 
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
-    "moduleDetection": "force",
-    "noEmit": true,
+        /* * ENVIRONMENT SETTINGS
+         * These settings tell TS: "We are running in a modern Node.js environment."
+         */
+        "target": "ES2023", // Output modern JavaScript (2023 standard)
+        "lib": ["ES2023"], // Include definitions for modern JS features
+        "module": "ESNext", // Use modern import/export syntax
+        "types": ["node"], // Include types for 'process', 'fs', 'path' etc.
+        "skipLibCheck": true, // Don't waste time checking types inside node_modules
 
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
-  },
-  "include": ["vite.config.ts"]
+        /* * BUNDLER MODE
+         * These settings optimize TS for working with tools like Vite/Esbuild
+         */
+        "moduleResolution": "bundler", // Tells TS: "A bundler (Vite) will handle imports, so be flexible."
+        "allowImportingTsExtensions": true, // Allows importing .ts files directly (Vite handles this)
+        "verbatimModuleSyntax": true, // Keeps imports exactly as written (important for Vite's speed)
+        "moduleDetection": "force", // Treats every file as a module (avoids global variable pollution)
+
+        /*
+         * "noEmit": true
+         * Crucial for Vite! This tells TS: "Do NOT create .js files."
+         * TS is only checking for errors. Vite does the actual file creation.
+         */
+        "noEmit": true,
+
+        /* * LINTING / STRICTNESS
+         * These act like a strict teacher grading your code.
+         */
+        "strict": true, // Turn on all strict type checking rules
+        "noUnusedLocals": true, // Error if you define a variable but don't use it
+        "noUnusedParameters": true, // Error if a function arg is unused
+        "noFallthroughCasesInSwitch": true, // Prevents bugs in switch statements
+        "noUncheckedSideEffectImports": true, // catches imports that might be typos
+
+        /*
+         * "erasableSyntaxOnly": true
+         * The modern "Isolated Modules" rule.
+         * Prevents you from using TS features that don't have a direct JS equivalent
+         * (like 'const enum' or 'namespaces'). This ensures Vite can strip types easily.
+         */
+        "erasableSyntaxOnly": true
+    },
+    // Only apply these rules to the Vite config file
+    "include": ["vite.config.ts"]
 }

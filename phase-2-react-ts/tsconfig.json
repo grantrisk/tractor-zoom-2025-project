@@ -1,7 +1,16 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+    /* * "files": []
+     * Tells the Root config: "Don't look at any code files yourself."
+     * You are just a manager for the 'references' below.
+     */
+    "files": [],
+
+    /*
+     * "references"
+     * This splits your project into two worlds:
+     * 1. The App (code that runs in the User's Browser)
+     * 2. The Node tools (code that runs on YOUR computer to build the app)
+     * This prevents you from accidentally using server-side code in your website.
+     */
+    "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }]
 }

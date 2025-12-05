@@ -1,28 +1,58 @@
 {
-  "compilerOptions": {
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-    "target": "ES2022",
-    "useDefineForClassFields": true,
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
-    "module": "ESNext",
-    "types": ["vite/client"],
-    "skipLibCheck": true,
+    "compilerOptions": {
+        /* Cache for speed */
+        "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
 
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
-    "moduleDetection": "force",
-    "noEmit": true,
-    "jsx": "react-jsx",
+        /* * ENVIRONMENT SETTINGS
+         * These tell TS: "We are running in a Web Browser."
+         */
+        "target": "ES2022", // Modern browsers
+        "module": "ESNext", // Modern imports
 
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
-  },
-  "include": ["src"]
+        /* * "lib"
+         * "DOM" is the critical part. It tells TS that variables like
+         * 'window', 'document', 'div', and 'console' exist.
+         */
+        "lib": ["ES2022", "DOM", "DOM.Iterable"],
+
+        /* * "types": ["vite/client"]
+         * THIS IS THE ANSWER TO YOUR ORIGINAL QUESTION.
+         * It automatically tells TS how to handle .svg imports and import.meta.env
+         * so you don't need the triple-slash reference file anymore.
+         */
+        "types": ["vite/client"],
+
+        /* Standardizes how class properties are created (standard JS behavior) */
+        "useDefineForClassFields": true,
+        "skipLibCheck": true,
+
+        /* * BUNDLER MODE
+         * (Same explanation as above - helps Vite run fast)
+         */
+        "moduleResolution": "bundler",
+        "allowImportingTsExtensions": true,
+        "verbatimModuleSyntax": true,
+        "moduleDetection": "force",
+
+        /* TS only checks for errors; Vite builds the actual app */
+        "noEmit": true,
+
+        /* * "jsx": "react-jsx"
+         * Tells TS you are writing React.
+         * It allows you to write <App /> syntax without crashing.
+         */
+        "jsx": "react-jsx",
+
+        /* * LINTING
+         * (Same strict rules as above to keep your code clean)
+         */
+        "strict": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "erasableSyntaxOnly": true, // Ensures code is compatible with Vite's "Transpile Only"
+        "noFallthroughCasesInSwitch": true,
+        "noUncheckedSideEffectImports": true
+    },
+    // Apply these rules to everything inside the 'src' folder
+    "include": ["src"]
 }
