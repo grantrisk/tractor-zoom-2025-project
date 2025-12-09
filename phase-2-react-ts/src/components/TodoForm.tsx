@@ -1,7 +1,12 @@
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import { Modal } from "./Modal";
+import type { Todo } from "../types/Todo";
 
-export const TodoForm = ({ onAddTask }) => { // AI-generated: `onAddTask` is a prop (function) passed from the parent `TodoList` component, demonstrating data flow from parent to child.
+type TodoFormParam = {
+    onAddTask: (task: Todo) => void
+}
+
+export const TodoForm = ({ onAddTask }: TodoFormParam) => { // AI-generated: `onAddTask` is a prop (function) passed from the parent `TodoList` component, demonstrating data flow from parent to child.
     // AI-generated comment:
     // `useState` is a React Hook that lets you add state to functional components.
     // It returns a pair: the current state value (`openModal`) and a function that lets you update it (`setModalOpen`).
@@ -20,7 +25,7 @@ export const TodoForm = ({ onAddTask }) => { // AI-generated: `onAddTask` is a p
     // };
 
     // After (with AI Recommended Change):
-    const addTask = (e) => {
+    const addTask = (e: FormEvent) => {
         // AI-generated comment:
         // `e.preventDefault()` is a standard DOM event method that stops the browser's default action.
         // For a form submission, the default action is to reload the page, which would cause React's

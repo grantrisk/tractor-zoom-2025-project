@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { TodoItem } from "./TodoItem";
 import { TodoForm } from "./TodoForm";
-import { Todo } from "../types/Todo";
+import { type Todo } from "../types/Todo";
 
 const initialTasks: Todo[] = [
     { id: 1, text: "Buy groceries", isCompleted: false },
@@ -17,7 +17,7 @@ export const TodoList = () => {
 
     // AI-generated comment:
     // This handler function is responsible for adding a new task to the list.
-    const addTaskHandler = (task) => {
+    const addTaskHandler = (task: Todo) => {
         // AI-generated comment:
         // Use the functional update form of `setTasks`. This is important when the new state
         // depends on the previous state, as it guarantees you're working with the most
@@ -44,7 +44,7 @@ export const TodoList = () => {
     // its own completion state, the `TodoList` (the common ancestor) manages the `tasks` array.
     // `toggleCompletedTask` is passed down as a prop to `TodoItem`, allowing the child to
     // request a state change that is then handled by the parent. This centralizes state logic.
-    const toggleCompletedTask = (taskId) => {
+    const toggleCompletedTask = (taskId: number) => {
         setTasks((prevTasks) =>
             // 1. Map over all previous tasks
             prevTasks.map((task) => {

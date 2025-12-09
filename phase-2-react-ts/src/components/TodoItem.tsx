@@ -1,8 +1,14 @@
-import { useState } from "react";
+import type { Todo } from "../types/Todo";
+
+type TodoItemParam = {
+    task: Todo,
+    onTaskCompleted: (taskId: number) => void
+}
+
 // AI-generated comment:
 // This is a functional component representing a single todo item.
 // It receives `task` (an object containing id, text, and isCompleted) and `onTaskCompleted` (a function) as props.
-export const TodoItem = ({ task, onTaskCompleted }) => {
+export const TodoItem = ({ task, onTaskCompleted }: TodoItemParam) => {
     const completed = task.isCompleted;
 
     return (

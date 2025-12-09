@@ -1,3 +1,11 @@
+import type { ReactNode } from "react";
+
+type ModalParam = {
+    isOpen: boolean,
+    onClose: () => void,
+    children: ReactNode
+}
+
 // AI GENERATED WITH CSS
 // AI-generated comment:
 // This is a functional component named Modal.
@@ -6,7 +14,7 @@
 // - `isOpen`: A boolean indicating whether the modal should be visible.
 // - `onClose`: A function to be called when the modal needs to be closed (e.g., by clicking the close button).
 // - `children`: A special prop that allows components to render whatever elements they enclose in the JSX.
-export const Modal = ({ isOpen, onClose, children }) => {
+export const Modal = ({ isOpen, onClose, children }: ModalParam) => {
     // AI-generated comment:
     // This is an example of conditional rendering. If `isOpen` is false,
     // the component immediately returns `null` (or `undefined`), preventing
