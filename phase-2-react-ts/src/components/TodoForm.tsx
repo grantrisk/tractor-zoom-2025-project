@@ -11,11 +11,11 @@ export const TodoForm = ({ onAddTask }: TodoFormParam) => { // AI-generated: `on
     // `useState` is a React Hook that lets you add state to functional components.
     // It returns a pair: the current state value (`openModal`) and a function that lets you update it (`setModalOpen`).
     // When `setModalOpen` is called, React re-renders the component with the new state.
-    const [openModal, setModalOpen] = useState(false);
+    const [openModal, setModalOpen] = useState<boolean>(false);
     // AI-generated comment:
     // This `useState` hook manages the text input for a new task.
     // `taskText` holds the current value of the input field.
-    const [taskText, setTaskText] = useState("");
+    const [taskText, setTaskText] = useState<string>("");
     // Before (with my original code):
     // const addTask = () => {
     //     const newId = Date.now();

@@ -27,12 +27,12 @@ Core Concepts to Learn & Document:
 Once the React app works, the next phase is to refactor the entire application to use TypeScript. This will introduce static typing.
 
 Core Concepts to Learn & Document:
-- [ ] Configuration: Setting up tsconfig.json and understanding key options.
-- [ ] Basic Types: Using string, number, boolean, array[].
-- [ ] Interfaces & Types: Defining a Todo type (e.g., { id: string; text: string; completed: boolean; }). When to use interface vs. type.
+- [x] Configuration: Setting up tsconfig.json and understanding key options.
+- [x] Basic Types: Using string, number, boolean, array[].
+- [x] Interfaces & Types: Defining a Todo type (e.g., { id: string; text: string; completed: boolean; }). When to use interface vs. type.
 Typing Components: How to type props using React.FC or (preferably) by typing the props object directly.
-- [ ] Typing Hooks: Typing useState<Todo[]>(...).
-- [ ] Typing Events: Correctly typing event handlers like React.FormEvent and React.MouseEvent.
+- [x] Typing Hooks: Typing useState<Todo[]>(...).
+- [x] Typing Events: Correctly typing event handlers like React.FormEvent and React.MouseEvent.
 
 ### Phase 3: Migrating to Next.js
 This is a major step. We will initialize a new Next.js (App Router) project with TypeScript and migrate our existing React components into it. The focus shifts from a client-only app to a full-stack framework.

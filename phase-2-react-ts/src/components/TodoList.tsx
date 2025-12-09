@@ -13,7 +13,7 @@ export const TodoList = () => {
     // `useState` is used here to manage the list of todo tasks. `tasks` is the current state
     // (an array of todo objects), and `setTasks` is the function to update this state.
     // React will re-render this component and its children whenever `setTasks` is called with a new value.
-    const [tasks, setTasks] = useState(initialTasks);
+    const [tasks, setTasks] = useState<Todo[]>(initialTasks);
 
     // AI-generated comment:
     // This handler function is responsible for adding a new task to the list.
