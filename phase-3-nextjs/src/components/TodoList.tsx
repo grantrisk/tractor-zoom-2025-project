@@ -4,16 +4,19 @@ import { TodoItem } from "./TodoItem";
 import { TodoForm } from "./TodoForm";
 import { type Todo } from "../types/Todo";
 
-const initialTasks: Todo[] = [
-    { id: 1, text: "Buy groceries", isCompleted: false },
-    { id: 2, text: "Finish React project", isCompleted: false },
-    { id: 3, text: "Walk the dog", isCompleted: true },
-];
-export const TodoList = () => {
+type TodoListProps = {
+    initialTasks: Todo[];
+};
+
+export const TodoList = ({ initialTasks }: TodoListProps) => {
     // AI-generated comment:
     // `useState` is used here to manage the list of todo tasks. `tasks` is the current state
     // (an array of todo objects), and `setTasks` is the function to update this state.
     // React will re-render this component and its children whenever `setTasks` is called with a new value.
+
+    // Initialize state using the Server Data.
+    // This is known as "Hydration": The server provides the initial snapshot,
+    // and React takes over in the browser to make it interactive.
     const [tasks, setTasks] = useState<Todo[]>(initialTasks);
 
     // AI-generated comment:

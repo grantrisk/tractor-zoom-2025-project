@@ -40,7 +40,10 @@ This is a major step. We will initialize a new Next.js (App Router) project with
 Core Concepts to Learn & Document:
 - [ ] Project Structure: The new app/ directory paradigm.
 - [ ] File-Based Routing: Understanding page.tsx, layout.tsx, and loading.tsx.
-- [ ] Server vs. Client Components: This is critical. What runs on the server vs. the client? The 'use client' directive. Why our interactive TODO app will need to be a Client Component (initially).
+- [x] Server vs. Client Components: This is critical. What runs on the server vs. the client? The 'use client' directive. Why our interactive TODO app will need to be a Client Component (initially).
+    - **Concept:** By default, Next.js uses Server Components (rendering HTML on the server). To use React Hooks (`useState`, `useEffect`), we must explicitly mark a component with `"use client"`.
+    - **Data Flow:** Data usually originates on the Server (e.g., Database calls in `page.tsx`). We pass this data into Client Components (`TodoList.tsx`) via props. 
+    - **Serialization:** Next.js automatically converts this server data into a JSON format to send it to the browser. This means props passed from Server to Client must be "serializable" (simple data like strings, numbers, arrays, objects—not functions or classes).
 - [ ] Server-Side Rendering (SSR) vs. Static Site Generation (SSG): What Next.js does by default and what the options are.
 - [ ] Routing & Layouts: How layout.tsx wraps page.tsx.
 
