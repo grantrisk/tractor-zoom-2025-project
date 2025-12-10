@@ -38,14 +38,14 @@ Typing Components: How to type props using React.FC or (preferably) by typing th
 This is a major step. We will initialize a new Next.js (App Router) project with TypeScript and migrate our existing React components into it. The focus shifts from a client-only app to a full-stack framework.
 
 Core Concepts to Learn & Document:
-- [ ] Project Structure: The new app/ directory paradigm.
-- [ ] File-Based Routing: Understanding page.tsx, layout.tsx, and loading.tsx.
+- [x] Project Structure: The new app/ directory paradigm.
+- [x] File-Based Routing: Understanding page.tsx, layout.tsx, and loading.tsx.
 - [x] Server vs. Client Components: This is critical. What runs on the server vs. the client? The 'use client' directive. Why our interactive TODO app will need to be a Client Component (initially).
     - **Concept:** By default, Next.js uses Server Components (rendering HTML on the server). To use React Hooks (`useState`, `useEffect`), we must explicitly mark a component with `"use client"`.
     - **Data Flow:** Data usually originates on the Server (e.g., Database calls in `page.tsx`). We pass this data into Client Components (`TodoList.tsx`) via props. 
     - **Serialization:** Next.js automatically converts this server data into a JSON format to send it to the browser. This means props passed from Server to Client must be "serializable" (simple data like strings, numbers, arrays, objects—not functions or classes).
-- [ ] Server-Side Rendering (SSR) vs. Static Site Generation (SSG): What Next.js does by default and what the options are.
-- [ ] Routing & Layouts: How layout.tsx wraps page.tsx.
+- [x] Server-Side Rendering (SSR) vs. Static Site Generation (SSG): What Next.js does by default and what the options are.
+- [x] Routing & Layouts: How layout.tsx wraps page.tsx.
 
 ### Phase 4: Advanced React & State Management
 With the app running in Next.js, we'll address a common React problem: state management. Instead of just props drilling, we'll explore better patterns.
