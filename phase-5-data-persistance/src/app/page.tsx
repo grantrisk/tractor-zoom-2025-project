@@ -11,9 +11,9 @@ export default async function Home() {
     // SIMULATE SLOW NETWORK
     // We pause here for 2 seconds. Next.js will look for a loading.tsx
     // to show during this pause.
-    // ‼️ After adding or deleting a task, this will cause a delay in the 
+    // ‼️ After adding or deleting a task, this will cause a delay in the
     // task to appear as well
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    // await new Promise((resolve) => setTimeout(resolve, 2000));
     const todos = await getTodos();
     return (
         <>
