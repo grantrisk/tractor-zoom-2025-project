@@ -51,9 +51,13 @@ Core Concepts to Learn & Document:
 With the app running in Next.js, we'll address a common React problem: state management. Instead of just props drilling, we'll explore better patterns.
 
 Core Concepts to Learn & Document:
-- [ ] React Context: Using createContext and the useContext hook to provide state to deep children without props drilling.
-- [ ] useReducer Hook: Pairing useContext with useReducer for more complex state logic (managing add, delete, toggle actions in one place).
-- [ ] Comparison: Documenting the trade-offs between useState, useContext, and useReducer.
+- [x] React Context: Using createContext and the useContext hook to provide state to deep children without props drilling.
+- [x] useReducer Hook: Pairing useContext with useReducer for more complex state logic (managing add, delete, toggle actions in one place).
+- [x] Comparison: Trade-offs between State Management options.
+    - **useState:** Best for local component state (e.g., form inputs, toggling a modal). Simple and fast.
+    - **Context:** Best for "broadcasting" global data to avoid prop drilling (e.g., User Auth, Theme, Language). **Warning:** Context can cause performance issues if not used carefully, as it re-renders all consumers when data changes.
+    - **useReducer:** Best for complex state logic where the next state depends on the previous one, or when multiple sub-values change together. It keeps business logic separate from UI components.
+    - **Context + useReducer:** The "Redux-lite" pattern. Great for mid-sized applications where you need global state with complex update logic, but don't want to install a heavy library like Redux.
 
 ### Phase 5: Next.js Full-Stack & Data Persistence
 Our app is still client-side. This phase turns it into a full-stack application by using Next.js's built-in backend features.
