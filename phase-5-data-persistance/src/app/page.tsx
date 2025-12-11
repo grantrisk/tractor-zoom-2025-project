@@ -1,39 +1,25 @@
 import { TodoList } from "@/components/TodoList";
 import { TodoProvider } from "@/context/TodoContext";
-import { Todo } from "@/types/Todo";
+import { getTodos } from "@/lib/db";
 
-/* LEARNING NOTE: SERVER VS CLIENT BOUNDARY
-   ----------------------------------------
-   This 'Home' component is a Server Component (default in Next.js).
-   It runs exclusively on the server (or during build time).
-   
-   Benefit: 
-   1. It can access the database directly (securely).
-   2. It sends zero JavaScript for itself to the browser (fast).
-   
-   Challenge:
-   It cannot be interactive (no onClick, no useState).
-   
-   Solution:
-   We fetch/define data here ('serverSideTasks') and pass it as a prop 
-   to the 'TodoList' component. The 'TodoList' is marked with "use client",
-   creating a boundary where we switch from Server Logic to Browser Logic.
+/* LEARNING NOTE: ASYNC SERVER COMPONENTS
+  Server Components can be 'async'. This allows us to 'await' data 
+  fetching logic (like a DB query) directly inside the component body.
 */
 
-// "Simulating" a database fetch on the server.
-// In a real app, this would be: const tasks = await db.query('SELECT * FROM todos');
-const serverSideTasks: Todo[] = [
-    { id: 1, text: "Buy groceries (Server Data)", isCompleted: false },
-    { id: 2, text: "Finish React project (Server Data)", isCompleted: false },
-    { id: 3, text: "Walk the dog (Server Data)", isCompleted: true },
-];
-
-export default function Home() {
+export default async function Home() {
+    // SIMULATE SLOW NETWORK
+    // We pause here for 2 seconds. Next.js will look for a loading.tsx
+    // to show during this pause.
+    // ‼️ After adding or deleting a task, this will cause a delay in the 
+    // task to appear as well
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    const todos = await getTodos();
     return (
         <>
             <h1>TractorZoom 2025 TODO Project</h1>
-            <TodoProvider initialTasks={serverSideTasks}>
-                <TodoList />
+            <TodoProvider initialTasks={todos}>
+                <TodoList tasks={todos} />
             </TodoProvider>
         </>
     );

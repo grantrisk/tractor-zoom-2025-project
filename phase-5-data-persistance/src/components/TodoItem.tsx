@@ -1,4 +1,4 @@
-import { useTodos } from "@/context/TodoContext";
+import { deleteTodoAction, toggleTodoAction } from "@/actions/todoActions";
 import type { Todo } from "../types/Todo";
 
 type TodoItemParam = {
@@ -6,7 +6,6 @@ type TodoItemParam = {
 };
 
 export const TodoItem = ({ task }: TodoItemParam) => {
-    const { dispatch } = useTodos();
     const completed = task.isCompleted;
 
     return (
@@ -17,14 +16,10 @@ export const TodoItem = ({ task }: TodoItemParam) => {
                 color: completed ? "#888" : "#000",
             }}
         >
-            <input
-                type="checkbox"
-                checked={completed}
-                onChange={() => dispatch({ type: "TOGGLED", payload: task.id })}
-            />
+            <input type="checkbox" checked={completed} onChange={() => toggleTodoAction(task.id)} />
             <span style={{ margin: "0 10px" }}>{task.text}</span>
             <button
-                onClick={() => dispatch({ type: "DELETED", payload: task.id })}
+                onClick={() => deleteTodoAction(task.id)}
                 style={{
                     marginLeft: "auto",
                     color: "red",

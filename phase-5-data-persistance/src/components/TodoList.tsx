@@ -1,11 +1,13 @@
 "use client";
-import { useTodos } from "@/context/TodoContext";
+import { Todo } from "@/types/Todo";
 import { TodoForm } from "./TodoForm";
 import { TodoItem } from "./TodoItem";
 
-export const TodoList = () => {
-    const { tasks } = useTodos();
+type TodoListProps = {
+    tasks: Todo[];
+};
 
+export const TodoList = ({ tasks }: TodoListProps) => {
     return (
         <>
             <TodoForm />

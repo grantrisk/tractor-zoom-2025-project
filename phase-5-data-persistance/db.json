@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "text": "Buy groceries (DB)",
+    "isCompleted": false
+  },
+  {
+    "id": 2,
+    "text": "Walk the dog (DB)",
+    "isCompleted": true
+  }
+]

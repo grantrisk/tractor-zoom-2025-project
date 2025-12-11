@@ -1,38 +1,46 @@
 "use client";
-import { useTodos } from "@/context/TodoContext";
-import { useState, type FormEvent } from "react";
+import { useState, useTransition } from "react";
 import { Modal } from "./Modal";
+import { addTodoAction } from "@/actions/todoActions";
 
 export const TodoForm = () => {
-    const { dispatch } = useTodos();
     const [openModal, setModalOpen] = useState<boolean>(false);
-    const [taskText, setTaskText] = useState<string>("");
 
-    const addTask = (e: FormEvent) => {
-        e.preventDefault();
+    // isPending: true while the async action is running
+    // startTransition: a wrapper to run the action
+    const [isPending, startTransition] = useTransition();
 
-        const newId = Date.now();
-        const newTask = { id: newId, text: taskText, isCompleted: false };
-        dispatch({ type: "ADDED", payload: newTask });
-        setModalOpen(false);
-
-        setTaskText("");
+    // We need a wrapper to close the modal after submission
+    // because Server Actions don't automatically know about our client-side modal state.
+    const handleSubmit = async (formData: FormData) => {
+        startTransition(async () => {
+            await addTodoAction(formData); // Call the server
+            setModalOpen(false);
+        });
     };
+
     return (
         <>
             <button onClick={() => setModalOpen(true)}>Add Task</button>
             {openModal && (
                 <Modal isOpen={openModal} onClose={() => setModalOpen(false)}>
-                    <form onSubmit={addTask}>
+                    <form action={handleSubmit}>
                         <h2>Create Task</h2>
                         <input
                             type="text"
                             id="task"
-                            name="task"
+                            name="task" // <--- CRITICAL: This matches 'formData.get("task")' in the action
                             placeholder="Enter your task"
-                            onChange={(e) => setTaskText(e.target.value)}
+                            required
+                            disabled={isPending} // Disable input while adding
                         />
-                        <button type="submit">Submit</button>
+                        <button
+                            type="submit"
+                            disabled={isPending}
+                            style={{ opacity: isPending ? 0.7 : 1 }}
+                        >
+                            {isPending ? "Adding..." : "Submit"}
+                        </button>
                     </form>
                 </Modal>
             )}
