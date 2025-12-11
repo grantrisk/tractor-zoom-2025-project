@@ -63,12 +63,12 @@ Core Concepts to Learn & Document:
 Our app is still client-side. This phase turns it into a full-stack application by using Next.js's built-in backend features.
 
 Core Concepts to Learn & Document:
-- [ ] Server Actions: The new, preferred way to handle form submissions and data mutations directly on the server.
+- [x] Server Actions: The new, preferred way to handle form submissions and data mutations directly on the server.
 - [ ] API Routes (Optional): Understanding the "old" way with the pages/api directory for comparison, or app/api route handlers.
-- [ ] Data Fetching: Using fetch in Server Components.
-- [ ] Data Persistence: Storing data. Start simple (e.g., a local JSON file or localStorage) before moving to a real database (e.g., Vercel Postgres, Supabase, or MongoDB Atlas).
+- [x] Data Fetching: Using fetch in Server Components.
+- [x] Data Persistence: Storing data. Start simple (e.g., a local JSON file or localStorage) before moving to a real database (e.g., Vercel Postgres, Supabase, or MongoDB Atlas).
 - [ ] Caching & Revalidation: How Next.js caches data. Using revalidatePath or revalidateTag to update the UI when data changes.
-- [ ] Loading/Error UI: Using Next.js conventions like loading.tsx and error.tsx to handle async states gracefully.
+- [x] Loading/Error UI: Using Next.js conventions like loading.tsx and error.tsx to handle async states gracefully.
 
 ### Phase 6: Styling & Deployment
 The final phase is to make the app look good and put it on the web.
