@@ -1,35 +1,35 @@
 import type { ReactNode } from "react";
 
 type ModalParam = {
-    isOpen: boolean,
-    onClose: () => void,
-    children: ReactNode
-}
+    isOpen: boolean;
+    onClose: () => void;
+    children: ReactNode;
+};
 
-// AI GENERATED WITH CSS
-// AI-generated comment:
-// This is a functional component named Modal.
-// It receives data and functions from its parent component via 'props'.
-// Here, props are destructured directly in the function signature:
-// - `isOpen`: A boolean indicating whether the modal should be visible.
-// - `onClose`: A function to be called when the modal needs to be closed (e.g., by clicking the close button).
-// - `children`: A special prop that allows components to render whatever elements they enclose in the JSX.
 export const Modal = ({ isOpen, onClose, children }: ModalParam) => {
-    // AI-generated comment:
-    // This is an example of conditional rendering. If `isOpen` is false,
-    // the component immediately returns `null` (or `undefined`), preventing
-    // the modal's JSX from being rendered to the DOM.
-    if (!isOpen) return null; // AI-generated: Returning null explicitly is a common practice for not rendering anything.
+    if (!isOpen) return null;
     return (
-        // This takes up the whole screen and add the gray overlay
-        <div className="modal-overlay">
-            {/* This holds all the content */}
-            <div className="modal-content">
-                {/* Simple close button */}
-                <button className="close-button" onClick={onClose}>
-                    &times;
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4 animate-in fade-in duration-200">
+            <div className="relative w-full max-w-md bg-white rounded-xl shadow-2xl p-6 animate-in zoom-in-95 duration-200">
+                <button
+                    className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+                    onClick={onClose}
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={2}
+                        stroke="currentColor"
+                        className="w-6 h-6"
+                    >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M6 18 18 6M6 6l12 12"
+                        />
+                    </svg>
                 </button>
-                {/* All the content passed in when the Modal component is wrapper around other jsx */}
                 {children}
             </div>
         </div>

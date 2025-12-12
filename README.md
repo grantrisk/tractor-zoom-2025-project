@@ -74,8 +74,8 @@ Core Concepts to Learn & Document:
 The final phase is to make the app look good and put it on the web.
 
 Core Concepts to Learn & Document:
-- [ ] Styling Methods: Explore and document different options.
-- [ ] CSS Modules: Locally scoped CSS (the Next.js default).
-- [ ] Tailwind CSS: Setting up and using a utility-first framework.
+- [x] Styling Methods: Explore and document different options.
+- [x] CSS Modules: Locally scoped CSS (the Next.js default).
+- [x] Tailwind CSS: Setting up and using a utility-first framework.
 - [ ] Styled-Components / Emotion: (Optional) How CSS-in-JS works with the App Router.
 - [ ] Deployment: Deploying the project to Vercel (the creators of Next.js) to understand the seamless deployment process, environment variables, and production builds.

@@ -2,25 +2,22 @@ import { TodoList } from "@/components/TodoList";
 import { TodoProvider } from "@/context/TodoContext";
 import { getTodos } from "@/lib/db";
 
-/* LEARNING NOTE: ASYNC SERVER COMPONENTS
-  Server Components can be 'async'. This allows us to 'await' data 
-  fetching logic (like a DB query) directly inside the component body.
-*/
-
 export default async function Home() {
-    // SIMULATE SLOW NETWORK
-    // We pause here for 2 seconds. Next.js will look for a loading.tsx
-    // to show during this pause.
-    // ‼️ After adding or deleting a task, this will cause a delay in the
-    // task to appear as well
-    // await new Promise((resolve) => setTimeout(resolve, 2000));
     const todos = await getTodos();
     return (
-        <>
-            <h1>TractorZoom 2025 TODO Project</h1>
-            <TodoProvider initialTasks={todos}>
-                <TodoList tasks={todos} />
-            </TodoProvider>
-        </>
+        <main className="min-h-screen bg-gray-100 py-10 px-4">
+            <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
+                <div className="bg-blue-600 p-6">
+                    <h1 className="text-3xl font-bold text-white text-center">
+                        TractorZoom 2025 TODO Project
+                    </h1>
+                </div>
+                <div className="p-6">
+                    <TodoProvider initialTasks={todos}>
+                        <TodoList tasks={todos} />
+                    </TodoProvider>
+                </div>
+            </div>
+        </main>
     );
 }
