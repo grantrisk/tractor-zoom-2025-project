@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "incremental": true,
+    // Plugins are typically used when a library or framework embeds a different language (like CSS or GraphQL) directly within a TypeScript/JavaScript file.
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    // Tells Typescript compiler how to resolve module imports
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  // Tells Typescript compiler which files to compile and check
+  // The next-env.d.ts file is a TypeScript declaration file automatically generated and managed by Next.js. Its primary and crucial role is to ensure that the TypeScript compiler knows about the specific types and global augmentations provided by the Next.js framework.
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts",
+    "**/*.mts"
+  ],
+  "exclude": ["node_modules"]
+}

@@ -1,0 +1,12 @@
+[
+  {
+    "id": 2,
+    "text": "Walk the dog (DB)",
+    "isCompleted": true
+  },
+  {
+    "id": 1765462030300,
+    "text": "Another random task",
+    "isCompleted": false
+  }
+]
